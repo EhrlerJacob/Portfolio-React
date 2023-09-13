@@ -16,6 +16,7 @@ const Portfolio = () => {
             id: 2,
             src: packFit,
             href: "https://github.com/EhrlerJacob/PackFit",
+            link: "https://packfitness.netlify.app/",
           },
     ]
 
@@ -43,7 +44,7 @@ const Portfolio = () => {
             visible: { opacity: 1, y: 0 },
           }}
         >
-          {portfolios.map(({ id, src, href }) => (
+          {portfolios.map(({ id, src, href, link }) => (
             <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
               <img
                 src={src}
@@ -51,9 +52,9 @@ const Portfolio = () => {
                 className="rounded-md duration-200 hover:scale-105"
               />
               <div className="flex items-center justify-center">
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-150">
+                <a href={link} className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-150">
                   Demo
-                </button>
+                </a>
                 <a href={href}
                 className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-150"
                   >

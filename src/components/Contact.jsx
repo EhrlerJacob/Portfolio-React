@@ -55,7 +55,7 @@ const Contact = () => {
                     name='company' 
                     placeholder='Company' 
                     className=' my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none'
-                    {...register("name", {
+                    {...register("company", {
                         required: true,
                         maxLength: 100,
                       })}
