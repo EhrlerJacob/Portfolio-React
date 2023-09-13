@@ -1,6 +1,10 @@
 import React from 'react'
 import Hero from "../assets/jacobhero.jpeg"
 import {MdOutlineKeyboardArrowRight} from 'react-icons/md';
+import { motion } from 'framer-motion';
+import { Link } from 'react-scroll';
+
+
 const Home = () => {
   return (
     <div 
@@ -9,7 +13,17 @@ const Home = () => {
     >
         <div className='max-w-screen-lg mx-auto flex flex-col items-center
         justify-center h-full px-4 md:flex-row'>
-            <div className='flex flex-col justify-center h-full mt-10'>
+            <motion.div 
+            className='flex flex-col justify-center h-full mt-10 max-md:mt-20'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+            }}
+            >
                 <h2 className='text-4xl sm:text-7xl sm:mt-20font-bold text-white'>
                     Full-Stack Developer
                 </h2>
@@ -21,7 +35,8 @@ const Home = () => {
                 </p>
 
                 <div>
-                    <button className=' group text-white w-fit px-6 py-3 my-2
+                    <Link to='portfolio' smooth duration={500}
+                    className=' group text-white w-fit px-6 py-3 my-2
                     flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500
                     cursor-pointer'>
                         Portfolio
@@ -29,16 +44,24 @@ const Home = () => {
                             <MdOutlineKeyboardArrowRight size={25}
                             className='ml-1'/>
                         </span>
-                    </button>
+                    </Link>
                 </div>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, y: -50 },
+              visible: { opacity: 1, y: 0 },
+            }}>
                 <img 
                 src={Hero} 
                 alt='jacob picture'
                 className='rounded-2xl mx-auto w-2/3 md:w-2/3 lg:' />
-            </div>
+            </motion.div>
         </div>
     </div>
   )

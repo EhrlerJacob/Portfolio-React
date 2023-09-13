@@ -1,9 +1,20 @@
+import { motion } from 'framer-motion';
 import React from 'react'
+
 
 const About = () => {
   return (
     <div name="about" className='w-full h-screen bg-gradient-to-b from-gray-800 to-black text-white'>
-        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
+        <motion.div 
+        className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'
+        initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}>
             <div className='pb-8'>
                 <p className='text-4xl font-bold inline border-b-4 border-gray-500'>Let Me Infroduce Myself</p>
             </div>
@@ -22,7 +33,7 @@ const About = () => {
                 using multiple into a single application can help to achieve the perfect product. I take pride in my 
                 ability to organize and structure a solid back-end which are built to scale in each application I produce. 
             </p>
-        </div>
+        </motion.div>
     </div>
   )
 }
